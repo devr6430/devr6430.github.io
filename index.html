@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rahul Dev — Data Analyst & EE Student</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+
+/* ── TOKENS ───────────────────────────────────── */
+:root {
+  --white:      #FFFFFF;
+  --bg:         #FAF8F4;
+  --beige:      #F2EDE4;
+  --beige2:     #E8E0D4;
+  --sand:       #DDD5C8;
+  --accent:     #C17D5A;
+  --accent-h:   #A86645;
+  --accent-soft:#F5EDE6;
+  --ink:        #1C1917;
+  --ink2:       #44403C;
+  --ink3:       #78716C;
+  --ink4:       #A8A29E;
+  --border:     #E2D9CE;
+  --border2:    #D4C9BB;
+  --radius:     12px;
+  --max:        1080px;
+}
+
+/* ── RESET ────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--beige); }
+::-webkit-scrollbar-thumb { background: var(--sand); border-radius: 4px; }
+
+/* ── NAV ──────────────────────────────────────── */
+nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  background: rgba(250,248,244,0.9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.nav-logo span { color: var(--accent); }
+.nav-links {
+  display: flex;
+  gap: 0.1rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ink3);
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+  letter-spacing: 0.01em;
+}
+.nav-links a:hover { color: var(--ink); background: var(--beige); }
+.nav-links a.active { color: var(--accent); }
+
+/* ── HERO ─────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 60px;
+  border-top: none !important;
+}
+.hero-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 4rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 5rem;
+  align-items: center;
+}
+.hero-available {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent-soft);
+  border: 1px solid #E8C9B4;
+  border-radius: 100px;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.8rem;
+}
+.hero-available-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity: 1; } 50% { opacity: 0.4; }
+}
+.hero-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(3rem, 5.5vw, 5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+.hero-name span { color: var(--accent); }
+.hero-role {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink2);
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+.hero-tagline {
+  font-size: 0.82rem;
+  color: var(--ink4);
+  font-weight: 400;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.hero-tagline-sep { color: var(--sand); }
+.hero-tagline span { color: var(--ink3); }
+.hero-actions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  transition: all 0.2s;
+}
+.btn-primary {
+  background: var(--ink);
+  color: var(--white);
+}
+.btn-primary:hover {
+  background: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(193,125,90,0.3);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--ink2);
+  border: 1.5px solid var(--border2);
+}
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* HERO RIGHT */
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.hero-photo-wrap {
+  position: relative;
+  width: 220px; height: 290px;
+}
+.hero-photo {
+  width: 220px; height: 290px;
+  border-radius: 16px;
+  object-fit: cover;
+  object-position: top center;
+  border: 4px solid var(--white);
+  box-shadow: 0 0 0 1px var(--border), 0 12px 40px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.hero-photo:hover {
+  box-shadow: 0 0 0 3px var(--accent), 0 16px 48px rgba(193,125,90,0.2);
+  transform: translateY(-3px);
+}
+.hero-stats {
+  display: flex;
+  gap: 0.8rem;
+  width: 100%;
+}
+.hstat {
+  flex: 1;
+  text-align: center;
+  padding: 0.9rem 0.5rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.hstat-num {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+.hstat-lbl {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.52rem;
+  color: var(--ink4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.3rem;
+}
+
+/* ── SECTIONS ─────────────────────────────────── */
+section { padding: 5.5rem 0; }
+.container { max-width: var(--max); margin: 0 auto; padding: 0 2.5rem; }
+section + section { border-top: 1px solid var(--border); }
+
+.sec-header { margin-bottom: 3rem; }
+.sec-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.sec-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+.sec-sub {
+  font-size: 0.88rem;
+  color: var(--ink3);
+  margin-top: 0.5rem;
+  font-weight: 400;
+}
+
+/* ── ABOUT ────────────────────────────────────── */
+#about { background: var(--white); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+.about-text p {
+  font-size: 0.92rem;
+  color: var(--ink2);
+  line-height: 1.9;
+  margin-bottom: 1.1rem;
+  font-weight: 400;
+}
+.about-text p strong { color: var(--ink); font-weight: 600; }
+.about-text p em {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  color: var(--accent);
+}
+.contact-items {
+  margin-top: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.82rem;
+  color: var(--ink3);
+}
+.c-icon {
+  width: 30px; height: 30px;
+  background: var(--beige);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.edu-stack { display: flex; flex-direction: column; gap: 1rem; }
+.edu-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.4rem;
+  border-left: 3px solid var(--accent);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.edu-card:hover {
+  transform: translateX(3px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+.edu-deg {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+}
+.edu-inst {
+  font-size: 0.75rem;
+  color: var(--ink4);
+  margin-bottom: 0.5rem;
+}
+.edu-score {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid #E8C9B4;
+  padding: 0.12rem 0.55rem;
+  border-radius: 100px;
+}
+
+/* ── PROJECTS ─────────────────────────────────── */
+#projects { background: var(--bg); }
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+.proj-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.proj-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  border-color: var(--accent);
+}
+.proj-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.proj-icon {
+  width: 42px; height: 42px;
+  background: var(--accent-soft);
+  border: 1px solid #E8C9B4;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+.proj-arrow {
+  font-size: 1.1rem;
+  color: var(--sand);
+  transition: color 0.2s, transform 0.2s;
+}
+.proj-card:hover .proj-arrow { color: var(--accent); transform: translate(2px,-2px); }
+.proj-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.4;
+}
+.proj-desc {
+  font-size: 0.8rem;
+  color: var(--ink3);
+  line-height: 1.75;
+  flex: 1;
+  font-weight: 400;
+}
+.proj-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.3rem;
+}
+.proj-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 100px;
+  background: var(--beige);
+  border: 1px solid var(--border);
+  color: var(--ink3);
+  transition: all 0.2s;
+}
+.proj-card:hover .proj-tag {
+  background: var(--accent-soft);
+  border-color: #E8C9B4;
+  color: var(--accent);
+}
+
+/* ── SKILLS ───────────────────────────────────── */
+#skills { background: var(--white); }
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+.skill-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: border-color 0.2s;
+}
+.skill-card:hover { border-color: var(--accent); }
+.skill-cat {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.skill-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.skill-tag {
+  font-size: 0.75rem;
+  font-weight: 400;
+  padding: 0.25rem 0.7rem;
+  border-radius: 6px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  color: var(--ink2);
+  transition: all 0.2s;
+  cursor: default;
+}
+.skill-tag:hover {
+  background: var(--accent-soft);
+  border-color: #E8C9B4;
+  color: var(--accent);
+}
+
+/* ── EXPERIENCE ───────────────────────────────── */
+#experience { background: var(--bg); }
+.exp-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.2rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2.5rem;
+  align-items: start;
+  margin-bottom: 1.2rem;
+  transition: border-color 0.2s;
+}
+.exp-card:hover { border-color: var(--accent); }
+.exp-company {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.exp-role {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.2rem;
+}
+.exp-points { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.exp-points li {
+  display: flex;
+  gap: 0.7rem;
+  font-size: 0.85rem;
+  color: var(--ink2);
+  line-height: 1.75;
+  font-weight: 400;
+}
+.exp-points li::before {
+  content: '→';
+  color: var(--accent);
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  margin-top: 0.15rem;
+}
+.exp-meta { flex-shrink: 0; text-align: right; }
+.exp-period {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--ink3);
+  background: var(--beige);
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.8rem;
+  border-radius: 6px;
+  margin-bottom: 0.4rem;
+  white-space: nowrap;
+}
+.exp-type {
+  font-size: 0.68rem;
+  color: var(--ink4);
+  text-align: right;
+}
+
+/* POSITIONS */
+.pos-section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink4);
+  margin: 2.5rem 0 1rem;
+}
+.pos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.pos-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.pos-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.pos-icon {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.pos-icon svg { width: 22px; height: 22px; }
+.pos-org {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.2rem;
+}
+.pos-role {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.18rem;
+}
+.pos-period {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--ink4);
+  margin-bottom: 0.6rem;
+}
+.pos-desc {
+  font-size: 0.78rem;
+  color: var(--ink3);
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* ── CONTACT ──────────────────────────────────── */
+#contact { background: var(--beige); }
+.contact-center {
+  max-width: 580px;
+  margin: 0 auto;
+  text-align: center;
+}
+.contact-center .sec-eyebrow { text-align: center; }
+.contact-center .sec-title { text-align: center; }
+.contact-intro {
+  font-size: 0.9rem;
+  color: var(--ink3);
+  line-height: 1.85;
+  margin-top: 0.8rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+.contact-chips {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ink2);
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+.chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(193,125,90,0.15);
+}
+
+/* ── FOOTER ───────────────────────────────────── */
+footer {
+  background: var(--ink);
+  padding: 2rem 0;
+}
+.footer-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-logo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: -0.01em;
+}
+.footer-logo span { color: var(--accent); }
+.footer-copy {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.3);
+}
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+.footer-links a {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--accent); }
+
+/* ── RESPONSIVE ───────────────────────────────── */
+@media (max-width: 960px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-right { flex-direction: row; align-items: center; justify-content: flex-start; }
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .projects-grid { grid-template-columns: 1fr 1fr; }
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  .exp-card { grid-template-columns: 1fr; }
+  .exp-meta { text-align: left; }
+}
+@media (max-width: 600px) {
+  .nav-links { display: none; }
+  section { padding: 4rem 0; }
+  .hero-inner { padding: 3rem 1.5rem; }
+  .container { padding: 0 1.5rem; }
+  .hero-name { font-size: 2.8rem; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .pos-grid { grid-template-columns: 1fr; }
+  .hero-right { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">Rahul<span>.</span>Dev</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-available">
+        <div class="hero-available-dot"></div>
+        Available for Opportunities
+      </div>
+      <h1 class="hero-name">Rahul<br/><span>Dev.</span></h1>
+      <p class="hero-role">Electrical Engineering Student at Delhi Technological University</p>
+      <div class="hero-tagline">
+        <span>Aspiring Product & Data Analyst</span>
+        <span class="hero-tagline-sep">·</span>
+        <span>Associate Editor – DTU Times</span>
+        <span class="hero-tagline-sep">·</span>
+        <span>Corporal – DTU NCC</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View Projects ↓</a>
+        <a href="#" class="btn btn-outline">Download Resume ↗</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <img class="hero-photo" src="./Rahul_Portfolio_Photo.jpeg" alt="Rahul Dev"/>
+      <div class="hero-stats">
+        <div class="hstat">
+          <div class="hstat-num">12%</div>
+          <div class="hstat-lbl">Engagement↑</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">100+</div>
+          <div class="hstat-lbl">Team Led</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">7.56</div>
+          <div class="hstat-lbl">CGPA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-eyebrow">01 — About</div>
+      <h2 class="sec-title">Who I Am</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm <strong>Rahul Dev</strong>, a final-year B.Tech Electrical Engineering student at <strong>Delhi Technological University</strong>, passionate about <em>data analytics</em>, business intelligence, and building systems that make data useful.</p>
+        <p>At <strong>KRAYADOTSHOP</strong>, I analyzed clickstream data to improve platform engagement by <strong>12%</strong>, monitored <strong>12+ KPIs</strong>, built automated Python pipelines, and developed real-time dashboards in Power BI and DOMO — end-to-end ownership of analytics that delivers measurable results.</p>
+        <p>Beyond tech, I rose through <strong>DTU Times</strong> from Assistant Editor to Student Advisor, leading teams of 100+ members. As a <strong>Corporal in DTU NCC</strong>, I'm part of the institute awarded Best in the Delhi Directorate.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="c-icon" style="background:#EFF6FF;border-color:#BFDBFE;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            Delhi Technological University, New Delhi
+          </div>
+          <div class="contact-item">
+            <div class="c-icon" style="background:#F0FDF4;border-color:#BBF7D0;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bbc9dad3ced7dfdecde4dede8989d98a8ce48e88fbdfcfce95dad895d2d5">[email&#160;protected]</a>
+          </div>
+          <div class="contact-item">
+            <div class="c-icon" style="background:#FFF7ED;border-color:#FED7AA;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.33a2 2 0 0 1 2-1.72h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            +91 9899251583
+          </div>
+        </div>
+      </div>
+      <div class="edu-stack">
+        <div class="edu-card">
+          <div class="edu-deg">B.Tech — Electrical Engineering</div>
+          <div class="edu-inst">Delhi Technological University · 2022–2026</div>
+          <span class="edu-score">CGPA: 7.56</span>
+        </div>
+        <div class="edu-card">
+          <div class="edu-deg">Class XII — Science</div>
+          <div class="edu-inst">Jamia Millia Islamia Board · 2020</div>
+          <span class="edu-score">89.8%</span>
+        </div>
+        <div class="edu-card">
+          <div class="edu-deg">Class X</div>
+          <div class="edu-inst">Jamia Millia Islamia Board · 2018</div>
+          <span class="edu-score">86.8%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-eyebrow">02 — Projects</div>
+      <h2 class="sec-title">Things I've Built</h2>
+      <p class="sec-sub">A selection of analytical and engineering projects.</p>
+    </div>
+    <div class="projects-grid">
+      <div class="proj-card">
+        <div class="proj-top">
+          <div class="proj-icon" style="background:#EFF6FF;border:1px solid #BFDBFE;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <span class="proj-arrow">↗</span>
+        </div>
+        <div class="proj-title">Tourist Non-Exploitation Platform</div>
+        <div class="proj-desc">Multilingual chatbot-integrated interface ensuring pricing transparency across Indian travel destinations, compliant with tourism regulations.</div>
+        <div class="proj-tags">
+          <span class="proj-tag">Chatbot</span>
+          <span class="proj-tag">Multilingual</span>
+          <span class="proj-tag">Tourism</span>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-top">
+          <div class="proj-icon" style="background:#F0FDF4;border:1px solid #BBF7D0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <span class="proj-arrow">↗</span>
+        </div>
+        <div class="proj-title">Paytm Stock Trend Analysis</div>
+        <div class="proj-desc">Time-series analysis using Python. Engineered moving averages and daily return indicators with an interactive Power BI dashboard for price trends and volatility.</div>
+        <div class="proj-tags">
+          <span class="proj-tag">Python</span>
+          <span class="proj-tag">Power BI</span>
+          <span class="proj-tag">Finance</span>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-top">
+          <div class="proj-icon" style="background:#FFF7ED;border:1px solid #FED7AA;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </div>
+          <span class="proj-arrow">↗</span>
+        </div>
+        <div class="proj-title">SmartShop Insights</div>
+        <div class="proj-desc">Live dashboard with 1,248 active users at a 2.85% conversion rate. Identified checkout bottleneck via Selenium and resolved slow mobile image loading.</div>
+        <div class="proj-tags">
+          <span class="proj-tag">Selenium</span>
+          <span class="proj-tag">Analytics</span>
+          <span class="proj-tag">Dashboard</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-eyebrow">03 — Skills</div>
+      <h2 class="sec-title">What I Work With</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-cat"><span class="skill-dot"></span>Languages</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span><span class="skill-tag">SQL</span>
+          <span class="skill-tag">C</span><span class="skill-tag">C++</span>
+          <span class="skill-tag">HTML</span><span class="skill-tag">CSS</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat"><span class="skill-dot"></span>Libraries</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span>
+          <span class="skill-tag">Matplotlib</span><span class="skill-tag">Seaborn</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat"><span class="skill-dot"></span>Tools & BI</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Power BI</span><span class="skill-tag">DOMO</span>
+          <span class="skill-tag">GA4</span><span class="skill-tag">Selenium</span>
+          <span class="skill-tag">Lightroom</span><span class="skill-tag">DaVinci</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat"><span class="skill-dot"></span>Coursework</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Data Structures</span><span class="skill-tag">DBMS</span>
+          <span class="skill-tag">Networks</span><span class="skill-tag">Cloud Computing</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat"><span class="skill-dot"></span>Simulation</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Gazebo</span><span class="skill-tag">RViz</span>
+          <span class="skill-tag">MATLAB</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat"><span class="skill-dot"></span>Leadership</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Team Leadership</span><span class="skill-tag">Editorial</span>
+          <span class="skill-tag">Mentorship</span><span class="skill-tag">Project Mgmt</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-eyebrow">04 — Experience</div>
+      <h2 class="sec-title">Where I've Worked</h2>
+    </div>
+
+    <div class="exp-card">
+      <div>
+        <div class="exp-company">● KRAYADOTSHOP · Remote</div>
+        <div class="exp-role">Data Analytics Intern</div>
+        <p style="font-size:0.88rem; color:var(--ink2); line-height:1.85; font-weight:400;">
+          Analyzed clickstream and user interaction data to derive actionable insights that improved platform engagement by <strong style="color:var(--accent)">12%</strong>. Monitored and evaluated performance using <strong style="color:var(--accent)">12+ key product and marketing KPIs</strong>. Developed Python scripts for data processing and built automated dashboards using <strong style="color:var(--accent)">DOMO and Power BI</strong> for real-time performance tracking. Implemented data validation pipelines between <strong style="color:var(--accent)">GA4 and BI tools</strong> to maintain data integrity and support accurate, data-driven decision-making.
+        </p>
+      </div>
+      <div class="exp-meta">
+        <div class="exp-period">Jun – Jul 2025</div>
+        <div class="exp-type">Remote Internship</div>
+      </div>
+    </div>
+
+    <div class="pos-section-label">Positions of Responsibility</div>
+    <div class="pos-grid">
+      <div class="pos-card">
+        <div class="pos-icon" style="background:#FFF7ED;border:1px solid #FED7AA;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+        <div>
+          <div class="pos-org">DTU Times</div>
+          <div class="pos-role">Student Advisor</div>
+          <div class="pos-period">Aug 2025 – Present</div>
+          <div class="pos-desc">Provide strategic guidance to the editorial and leadership teams to ensure the smooth functioning and long-term continuity of the publication. Mentor student leaders by sharing institutional knowledge, best practices, and workflow strategies developed over previous editions. Support decision-making related to content planning, editorial standards, and collaboration across teams, helping maintain the quality, vision, and culture of DTU Times while enabling the new leadership to operate effectively.</div>
+        </div>
+      </div>
+      <div class="pos-card">
+        <div class="pos-icon" style="background:#EFF6FF;border:1px solid #BFDBFE;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </div>
+        <div>
+          <div class="pos-org">DTU Times</div>
+          <div class="pos-role">Associate Editor</div>
+          <div class="pos-period">Feb 2025 – Aug 2025</div>
+          <div class="pos-desc">Led the complete execution of Edition 67 by coordinating a cross-functional team of over 100 members, including columnists, illustrators, designers, and developers. Oversaw editorial planning, content review, and workflow management to ensure timely delivery of the magazine. Collaborated with design and illustration teams to maintain visual and editorial coherence, while ensuring high writing standards, effective communication across teams, and the successful publication of a polished and engaging edition.</div>
+        </div>
+      </div>
+      <div class="pos-card">
+        <div class="pos-icon" style="background:#F0FDF4;border:1px solid #BBF7D0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+        <div>
+          <div class="pos-org">DTU Times</div>
+          <div class="pos-role">Assistant Editor</div>
+          <div class="pos-period">Apr 2024 – Feb 2025</div>
+          <div class="pos-desc">Managed a content vertical within the quarterly publication, coordinating a team of 20–30 members, including columnists, illustrators, and designers. Oversaw content collection, editing, and alignment with the edition's theme and editorial standards. Facilitated collaboration across teams to ensure smooth workflow and timely completion of tasks, contributing to the production of high-quality content and maintaining the consistency and professionalism of DTU Times' publication process.</div>
+        </div>
+      </div>
+      <div class="pos-card">
+        <div class="pos-icon" style="background:#FDF4FF;border:1px solid #E9D5FF;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#A855F7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+        <div>
+          <div class="pos-org">DTU NCC</div>
+          <div class="pos-role">Corporal</div>
+          <div class="pos-period">May 2025 – Present</div>
+          <div class="pos-desc">Lead and mentor junior cadets during drills, training sessions, and unit activities while ensuring discipline and teamwork within the unit. Assist in organizing parades, camps, and institutional NCC events, coordinating cadet participation and preparation. Conduct sessions to help cadets prepare for SSB interviews through lecturette practice, group discussions, and practical training exercises, helping them develop leadership, communication skills, confidence, and real-world problem-solving abilities.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-center">
+      <div class="sec-eyebrow">05 — Contact</div>
+      <h2 class="sec-title">Let's Connect</h2>
+      <p class="contact-intro">
+        I'm open to internships, collaborations, and interesting conversations. Whether you have an opportunity or want to say hello, my inbox is always open.
+      </p>
+      <div class="contact-chips">
+        <a href="/cdn-cgi/l/email-protection#f98b98918c959d9c8fa69c9ccbcb9bc8cea6cccab99d8d8cd7989ad79097" class="chip">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email 
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="chip">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="tel:+919899251583" class="chip">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.33a2 2 0 0 1 2-1.72h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +91 98992 51583
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Rahul<span>.</span>Dev</span>
+    <span class="footer-copy">© 2022 · Delhi Technological University</span>
+    <ul class="footer-links">
+      <li><a href="/cdn-cgi/l/email-protection#0a786b627f666e6f7c556f6f3838683b3d553f394a6e7e7f246b69246364">Email</a></li>
+      <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/clo
